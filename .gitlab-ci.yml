@@ -1,8 +1,8 @@
 compile_pdf:
   image: aergus/latex
   script:
-    - latexmk -pdf H_Beheshti_cv.tex
+    - latexmk -pdflatex=lualatex -pdf cv.tex
   artifacts:
     paths:
-      - H_Beheshti_cv.pdf
+      - cv.pdf
     expire_in: 4 week
