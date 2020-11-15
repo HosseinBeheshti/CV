@@ -1,8 +1,22 @@
-compile_pdf:
-  image: aergus/latex
+image: aergus/latex
+
+stages:
+  - compile
+
+compile_cv:
+  stage: compile
   script:
     - latexmk -pdflatex=lualatex -pdf cv.tex
   artifacts:
     paths:
       - cv.pdf
+    expire_in: 4 week
+  
+compile_cv_no_photo:
+  stage: compile
+  script:
+    - latexmk -pdflatex=lualatex -pdf cv_no_photo.tex
+  artifacts:
+    paths:
+      - cv_no_photo.pdf
     expire_in: 4 week
