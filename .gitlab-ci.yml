@@ -1,8 +1,10 @@
-image: aergus/latex
+image: thomasweise/docker-texlive-full
 
 stages:
   - build
   - package
+
+parallel: 3
 
 build_cv1:
   stage: build
