@@ -4,19 +4,19 @@ stages:
 
 build_cv1:
   stage: build
-  image: thomasweise/docker-texlive-full
+  image: texlive/texlive
   script:
     - latexmk -pdflatex=lualatex -pdf CV.tex
 
 build_cv2:
   stage: build
-  image: thomasweise/docker-texlive-full
+  image: texlive/texlive
   script:
     - latexmk -pdflatex=lualatex -pdf CV2.tex
 
 build_coverletter:
   stage: build
-  image: thomasweise/docker-texlive-full
+  image: texlive/texlive
   script:
     - latexmk -pdflatex=lualatex -pdf cover_letter.tex
 
