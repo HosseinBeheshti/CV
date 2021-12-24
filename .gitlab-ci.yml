@@ -1,30 +1,32 @@
-image: thomasweise/docker-texlive-full
-
 stages:
   - build
   - package
 
-parallel: 3
-
 build_cv1:
   stage: build
+  image: thomasweise/docker-texlive-full
   script:
     - latexmk -pdflatex=lualatex -pdf CV.tex
 
 build_cv2:
   stage: build
+  image: thomasweise/docker-texlive-full
   script:
     - latexmk -pdflatex=lualatex -pdf CV2.tex
 
 build_coverletter:
   stage: build
+  image: thomasweise/docker-texlive-full
   script:
     - latexmk -pdflatex=lualatex -pdf cover_letter.tex
+
 
 package:
   stage: package
   needs:
-    - build
+    - build_cv1
+    - build_cv2
+    - build_coverletter
   rules:
     - when: manual
   script:
