@@ -1,22 +1,31 @@
 image: aergus/latex
 
 stages:
-  - compile
+  - build
+  - package
 
-compile_cv:
-  stage: compile
+build_cv1:
+  stage: build
   script:
-    - latexmk -pdflatex=lualatex -pdf cv.tex
-  artifacts:
-    paths:
-      - cv.pdf
-    expire_in: 4 week
-  
-compile_cv_no_photo:
-  stage: compile
+    - latexmk -pdflatex=lualatex -pdf CV.tex
+
+build_cv2:
+  stage: build
   script:
-    - latexmk -pdflatex=lualatex -pdf cv_no_photo.tex
+    - latexmk -pdflatex=lualatex -pdf CV2.tex
+
+build_coverletter:
+  stage: build
+  script:
+    - latexmk -pdflatex=lualatex -pdf cover_letter.tex
+
+package:
+  stage: package
+  needs:
+    - build
+  rules:
+    - when: manual
+  script:
+    - tar -czvf HosseinBehehti.tar.gz CV.pdf CV2.pdf cover_letter.pdf
   artifacts:
-    paths:
-      - cv_no_photo.pdf
     expire_in: 4 week
