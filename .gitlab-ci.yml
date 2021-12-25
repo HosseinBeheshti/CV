@@ -1,35 +1,33 @@
 stages:
   - build
-  - package
+
 
 build_cv1:
   stage: build
   image: texlive/texlive
   script:
     - latexmk -pdflatex=lualatex -pdf CV.tex
+  artifacts:
+    paths:
+      - CV.pdf
+    expire_in: 4 week
 
 build_cv2:
   stage: build
   image: texlive/texlive
   script:
     - latexmk -pdflatex=lualatex -pdf CV2.tex
+  artifacts:
+    paths:
+      - CV2.pdf
+    expire_in: 4 week
 
 build_coverletter:
   stage: build
   image: texlive/texlive
   script:
     - latexmk -pdflatex=lualatex -pdf cover_letter.tex
-
-
-package:
-  stage: package
-  needs:
-    - build_cv1
-    - build_cv2
-    - build_coverletter
-  rules:
-    - when: manual
-  script:
-    - tar -czvf HosseinBehehti.tar.gz CV.pdf CV2.pdf cover_letter.pdf
   artifacts:
+    paths:
+      - cover_letter.pdf
     expire_in: 4 week
