@@ -67,34 +67,17 @@
 \RequirePackage[skins]{tcolorbox}
 
 
-\DeclareUnicodeCharacter{00E9}{\'{e}}
 % Define default accent colors
-\definecolor{basecolor}{HTML}{000066}       %BLUE
-
-\ifundef{\@green} {
-  \ifundef{\@red} {
-    \ifundef{\@indigo}{
-      \ifundef{\@orange} {}
-      { \definecolor{basecolor}{HTML}{e68a00} }
-    }
-    { \definecolor{basecolor}{rgb}{0.2, 0.07, 0.48} }
-  }
-  { \definecolor{basecolor}{HTML}{b30000} }     %RED
-}
-{ \definecolor{basecolor}{rgb}{0.0, 0.62, 0.38} }
-
+\definecolor{basecolor}{HTML}{00005D}
 \definecolor{darkGrey}{HTML}{989898}
-
 \colorlet{linkcolor}{basecolor}
 \colorlet{accentcolor}{linkcolor!90}
 \colorlet{symbolcolor}{linkcolor!85}
 
 % Setup hyperref package, and colours for links
-%\definecolor{linkcolour}{rgb}{0,0.2,0.6}
 \hypersetup{breaklinks}
 
 \pagestyle{empty}                         % non-numbered pages
-%\font\fb=''[cmr10]''                      % for use with \LaTeX command
 
 % Setup CV sections
 \titleformat{\section}{\Large\raggedright}{}{0em}{}[\titlerule]
@@ -116,25 +99,12 @@
 %-------------------------------------------------------------------------------
 %                Configuration for fonts
 %-------------------------------------------------------------------------------
-% Set the FontAwesome font to be up-to-date.
-%HB \newfontfamily\FA[Path=fonts/]{FontAwesome}
-
 % Define font to use according to localFont option
 \ifundef{\@local}
 {
-  %\setmainfont[BoldFont = Helvetica Neue, ItalicFont=Helvetica Neue Thin Italic ,SmallCapsFont = Helvetica Neue Light]{Helvetica Neue Thin}
-  \setmainfont[
-    BoldFont = Source Sans Pro Semibold, 
-    ItalicFont= Source Sans Pro Light Italic,
-    SmallCapsFont = Source Sans Pro]{Source Sans Pro Light}
+	\setmainfont[Ligatures={TeX,Common}]{Helvetica}
 }
-{
-  \setmainfont[
-    Path = fonts/, 
-    BoldFont = SourceSansPro-Semibold, 
-    ItalicFont = SourceSansPro-LightIt, 
-    SmallCapsFont = SourceSansPro-Regular]{SourceSansPro-Light}
-}
+
 
 %New length definition
 \newlength{\rightcolumnlength}
@@ -160,7 +130,6 @@
 % Create a tag
 % Usage: \cvtag{<tag label>}
 \newcommand{\cvtag}[1]{%
-  %\tikz[baseline]\node[anchor=base,draw=darkGrey!70,rounded corners=0.5ex,inner xsep=1ex,inner ysep =0.55ex,text height=1.3ex,text depth=.25ex]{#1};
 \begin{tikzpicture}
 	\node[anchor=base,draw=darkGrey!70,rounded corners=0.5ex,inner xsep=1ex,inner ysep =0.55ex,text height=1.3ex,text depth=.25ex]{#1};
 \end{tikzpicture}	  
@@ -176,7 +145,6 @@
 
 % Render a link with its symbol
 % Usage; \sociallink{<icon>}{<label>}
-%\newcommand{\sociallink}[3]{\mbox{\textcolor{symbolcolor}{#1}\hspace{0.5em}#2\hspace{1em}}}
 \newcommand{\sociallink}[3]{\mbox{\textcolor{symbolcolor}{#1}\hspace{0.5em}\link{#2}{#3}\hspace{1em}}}
 
 % Define author's name
@@ -245,7 +213,6 @@
 	 }
 	 \bigskip
   }{
-   % \color{accentcolor}\textsc{\large{#1}}\color{black}
 	 \par{
 	 	\bigskip\center{\Large \color{accentcolor}\textsc{#1}\color{Black}}\par
 	 }
@@ -295,13 +262,6 @@
 			\end{minipage}  	    
 		\ifdef{\@photodiameter}{
 			\begin{minipage}{\@photodiameter}
-%				\begin{tikzpicture}%
-%				\node[circle, text=white, minimum size=2.5cm,
-%				path picture={\node at (path picture bounding box.center){
-%						\includegraphics[width=2.5cm]{\@photo}
-%					};
-%				}]{ };
-%				\end{tikzpicture}		
 				\begin{tikzpicture}%
 				\node[text=white, minimum width=2.8cm, minimum height=2.8cm, %minimum size=2.8cm,
 				path picture={\node at (path picture bounding box.center){
@@ -310,10 +270,6 @@
 				}]{ };
 				\end{tikzpicture}			
 			\end{minipage} 			
-%      \begin{minipage}{\@photodiameter}
-%      	\tikz\path[fill overzoom image={\@photo}]circle[radius=0.5\linewidth];
-%      \end{minipage}
-      			     	
 		}{}
 		\bigskip
 	}
@@ -372,7 +328,8 @@
  \multirow{3}{*}{#8} & \textsc{#1}    & \textsc{#2, #3, #4}\\*
   & \textsc{#5}    & \begin{minipage}[t]{\rightcolumnlength}
   					         #6
-                   \end{minipage}										\\*
+                   \end{minipage}	\vspace*{0.1cm}									\\*
+
    &              & \footnotesize{\foreach \n in {#7}{\cvtag{\n}}} 	\\
   }
 
