@@ -325,13 +325,15 @@
 %                    }
 %                    {<Technology list>}
 \newcommand\experience[8]{
- \multirow{3}{*}{#8} & \textsc{#1}    & \textsc{#2, #3, #4}\\*
-  & \textsc{#5}    & \begin{minipage}[t]{\rightcolumnlength}
-  					         #6
-                   \end{minipage}	\vspace*{0.1cm}									\\*
+  \multirow{3}{*}{#8} & \textsc{#1} & \textsc{#2}, #3, #4                                     \\*
+                      & \textsc{#5} & \begin{minipage}[t]{5in}
+                                        #6
+                                      \end{minipage}	\vspace*{0.1cm}                           \\*
 
-   &              & \footnotesize{\foreach \n in {#7}{\cvtag{\n}}} 	\\
-  }
+                      &             & \begin{minipage}[t]{5in}
+                                        \footnotesize{\foreach \n in {#7}{\cvtag{\n}}}
+                                      \end{minipage}	\vspace*{0.1cm} \\
+}
 
 % Render a consultant experience in the experiences environment
 % Usage: 
