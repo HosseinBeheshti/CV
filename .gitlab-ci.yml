@@ -1,22 +1,33 @@
-image: aergus/latex
-
 stages:
-  - compile
+  - build
 
-compile_cv:
-  stage: compile
+
+build_cv1:
+  stage: build
+  image: texlive/texlive
   script:
-    - latexmk -pdflatex=lualatex -pdf cv.tex
+    - latexmk -pdflatex=lualatex -pdf CV.tex
   artifacts:
     paths:
-      - cv.pdf
+      - CV.pdf
     expire_in: 4 week
-  
-compile_cv_no_photo:
-  stage: compile
+
+build_cv2:
+  stage: build
+  image: texlive/texlive
   script:
-    - latexmk -pdflatex=lualatex -pdf cv_no_photo.tex
+    - latexmk -pdflatex=lualatex -pdf CV2.tex
   artifacts:
     paths:
-      - cv_no_photo.pdf
+      - CV2.pdf
+    expire_in: 4 week
+
+build_coverletter:
+  stage: build
+  image: texlive/texlive
+  script:
+    - latexmk -pdflatex=lualatex -pdf cover_letter.tex
+  artifacts:
+    paths:
+      - cover_letter.pdf
     expire_in: 4 week
