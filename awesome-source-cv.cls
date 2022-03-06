@@ -326,13 +326,13 @@
 %                    {<Technology list>}
 \newcommand\experience[7]{
   \textsc{#1} & \textsc{#2}, #3, #4                                     \\*
-                       \textsc{#5} & \begin{minipage}[t]{6in}
+                       \textsc{#5} & \begin{minipage}[t]{5.8in}
                                         #6
                                       \end{minipage}	\vspace*{0.1cm}                           \\*
 
-                                   & \begin{minipage}[t]{6in}
+                                   & \begin{minipage}[t]{5.8in}
                                         \footnotesize{\foreach \n in {#7}{\cvtag{\n}}}
-                                      \end{minipage}	\vspace*{0.1cm} \\
+                                      \end{minipage}\\
 }
 
 % Render a consultant experience in the experiences environment
