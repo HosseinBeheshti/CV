@@ -102,7 +102,18 @@
 % Define font to use according to localFont option
 \ifundef{\@local}
 {
-	\setmainfont[Ligatures={TeX,Common}]{Helvetica}
+	  %\setmainfont[BoldFont = Helvetica Neue, ItalicFont=Helvetica Neue Thin Italic ,SmallCapsFont = Helvetica Neue Light]{Helvetica Neue Thin}
+	  \setmainfont[
+		BoldFont = Source Sans Pro Semibold, 
+		ItalicFont= Source Sans Pro Light Italic,
+		SmallCapsFont = Source Sans Pro]{Source Sans Pro Light}
+	}
+	{
+	  \setmainfont[
+		Path = fonts/, 
+		BoldFont = SourceSansPro-Semibold, 
+		ItalicFont = SourceSansPro-LightIt, 
+		SmallCapsFont = SourceSansPro-Regular]{SourceSansPro-Light}
 }
 
 
