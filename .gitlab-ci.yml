@@ -1,8 +1,7 @@
 stages:
   - build
 
-
-build_cv1:
+build_cv:
   stage: build
   image: texlive/texlive
   script:
@@ -10,16 +9,6 @@ build_cv1:
   artifacts:
     paths:
       - CV.pdf
-    expire_in: 4 week
-
-build_cv2:
-  stage: build
-  image: texlive/texlive
-  script:
-    - latexmk -pdflatex=lualatex -pdf CV2.tex
-  artifacts:
-    paths:
-      - CV2.pdf
     expire_in: 4 week
 
 build_coverletter:

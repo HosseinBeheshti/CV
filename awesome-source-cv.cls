@@ -102,7 +102,18 @@
 % Define font to use according to localFont option
 \ifundef{\@local}
 {
-	\setmainfont[Ligatures={TeX,Common}]{Helvetica}
+	  %\setmainfont[BoldFont = Helvetica Neue, ItalicFont=Helvetica Neue Thin Italic ,SmallCapsFont = Helvetica Neue Light]{Helvetica Neue Thin}
+	  \setmainfont[
+		BoldFont = Source Sans Pro Semibold, 
+		ItalicFont= Source Sans Pro Light Italic,
+		SmallCapsFont = Source Sans Pro]{Source Sans Pro Light}
+	}
+	{
+	  \setmainfont[
+		Path = fonts/, 
+		BoldFont = SourceSansPro-Semibold, 
+		ItalicFont = SourceSansPro-LightIt, 
+		SmallCapsFont = SourceSansPro-Regular]{SourceSansPro-Light}
 }
 
 
@@ -311,7 +322,7 @@
 
 % Define the 'experiences' environment
 \newenvironment{experiences}{%
-  \begin{longtable}{cR{\leftcolumn}|E}
+  \begin{longtable}{R{\leftcolumn}|E}
 }{%
   \end{longtable}
 }
@@ -324,15 +335,15 @@
 %                      <Experience description (Could be a list)>
 %                    }
 %                    {<Technology list>}
-\newcommand\experience[8]{
-  \multirow{3}{*}{#8} & \textsc{#1} & \textsc{#2}, #3, #4                                     \\*
-                      & \textsc{#5} & \begin{minipage}[t]{5in}
+\newcommand\experience[7]{
+  \textsc{#1} & \textsc{#2}, #3, #4                                     \\*
+                       \textsc{#5} & \begin{minipage}[t]{5.8in}
                                         #6
                                       \end{minipage}	\vspace*{0.1cm}                           \\*
 
-                      &             & \begin{minipage}[t]{5in}
+                                   & \begin{minipage}[t]{5.8in}
                                         \footnotesize{\foreach \n in {#7}{\cvtag{\n}}}
-                                      \end{minipage}	\vspace*{0.1cm} \\
+                                      \end{minipage}\\
 }
 
 % Render a consultant experience in the experiences environment
