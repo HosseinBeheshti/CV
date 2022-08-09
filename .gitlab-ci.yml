@@ -8,7 +8,7 @@ build_cv:
     - latexmk -pdflatex=lualatex -pdf CV.tex
   artifacts:
     paths:
-      - CV.pdf
+      - HosseinBeheshti_CV.pdf
     expire_in: 4 week
 
 build_coverletter:
