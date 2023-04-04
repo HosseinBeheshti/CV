@@ -15,6 +15,6 @@ jobs:
           key: ${{ runner.os }}-latex-cache
       - run: |
           echo "Compiling LaTeX document..."
-          pdflatex mydocument.tex
+          pdflatex CV.tex
       - run: |
-          echo "PDF file is saved at ./mydocument.pdf"
+          echo "PDF file is saved at ./CV.pdf"
