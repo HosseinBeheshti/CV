@@ -7,7 +7,7 @@ jobs:
   build:
     name: Build LaTeX document
     runs-on: ubuntu-latest
-     steps:
+    steps:
       - uses: actions/checkout@v2
       - uses: actions/cache@v2
         with:
