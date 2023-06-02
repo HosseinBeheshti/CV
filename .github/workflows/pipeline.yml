@@ -1,20 +1,17 @@
-name: LaTeX CI
-on:
-  push:
-    branches:
-      - master
+name: Build LaTeX document
+on: [push]
 jobs:
-  build:
-    name: Build LaTeX document
+  build_latex:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/cache@v2
+      - name: Set up Git repository
+        uses: actions/checkout@v3
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v2
         with:
-          path: ./
-          key: ${{ runner.os }}-latex-cache
-      - run: |
-          echo "Compiling LaTeX document..."
-          pdflatex CV.tex
-      - run: |
-          echo "PDF file is saved at ./CV.pdf"
+          root_file: main.tex
+      - name: Upload PDF file
+        uses: actions/upload-artifact@v3
+        with:
+          name: PDF
+          path: main.pdf
