@@ -346,6 +346,18 @@
     \end{minipage}\\
 }
 
+\newcommand\experienceBrief[5]{
+    \textsc{#1} & \textsc{#2}                                    \\*
+    \textsc{#3} & \begin{minipage}[t]{5.8in}
+        #4
+    \end{minipage}	\vspace*{0.1cm}                           \\*
+
+    & \begin{minipage}[t]{5.8in}
+        \footnotesize{\foreach \n in {#5}{\cvtag{\n}}}
+    \end{minipage}\\
+}
+
+
 % Render a consultant experience in the experiences environment
 % Usage: 
 % \consultantexperience
