@@ -22,26 +22,26 @@
 \LoadClass[a4paper]{article}
 
 \DeclareOption{green}{
-  \def\@green{green}
+    \def\@green{green}
 }
 
 \DeclareOption{red}{
-  \def\@red{red}
+    \def\@red{red}
 }
 
 \DeclareOption{indigo}{
-  \def\@indigo{indigo}
+    \def\@indigo{indigo}
 }
 \DeclareOption{orange}{
-  \def\@orange{orange}
+    \def\@orange{orange}
 }
 
 \DeclareOption{localFont}{
-  \def\@local{local}
+    \def\@local{local}
 }
 
 \DeclareOption{alternative}{
-  \def\@alternative{alternate}
+    \def\@alternative{alternate}
 }
 
 \ProcessOptions
@@ -60,7 +60,7 @@
 \RequirePackage{titlesec}
 \RequirePackage{array}
 \RequirePackage{enumitem}
-\RequirePackage{longtable} 	
+\RequirePackage{longtable}
 \RequirePackage{etoolbox}
 \RequirePackage{tikz}
 \RequirePackage{multirow}
@@ -84,7 +84,7 @@
 \titlespacing{\section}{0pt}{2pt}{2pt}
 
 % Configure list
-\setlist[itemize,1]{label=\faAngleRight, nosep, leftmargin=2em} 
+\setlist[itemize,1]{label=\faAngleRight, nosep, leftmargin=2em}
 
 % Setup Array : new column type
 \newcolumntype{R}[1]{>{\hfill}m{#1}}
@@ -102,18 +102,18 @@
 % Define font to use according to localFont option
 \ifundef{\@local}
 {
-	  %\setmainfont[BoldFont = Helvetica Neue, ItalicFont=Helvetica Neue Thin Italic ,SmallCapsFont = Helvetica Neue Light]{Helvetica Neue Thin}
-	  \setmainfont[
-		BoldFont = Source Sans Pro Semibold, 
-		ItalicFont= Source Sans Pro Light Italic,
-		SmallCapsFont = Source Sans Pro]{Source Sans Pro Light}
-	}
-	{
-	  \setmainfont[
-		Path = fonts/, 
-		BoldFont = SourceSansPro-Semibold, 
-		ItalicFont = SourceSansPro-LightIt, 
-		SmallCapsFont = SourceSansPro-Regular]{SourceSansPro-Light}
+    %\setmainfont[BoldFont = Helvetica Neue, ItalicFont=Helvetica Neue Thin Italic ,SmallCapsFont = Helvetica Neue Light]{Helvetica Neue Thin}
+    \setmainfont[
+        BoldFont = Source Sans Pro Semibold,
+        ItalicFont= Source Sans Pro Light Italic,
+        SmallCapsFont = Source Sans Pro]{Source Sans Pro Light}
+}
+{
+    \setmainfont[
+        Path = fonts/,
+        BoldFont = SourceSansPro-Semibold,
+        ItalicFont = SourceSansPro-LightIt,
+        SmallCapsFont = SourceSansPro-Regular]{SourceSansPro-Light}
 }
 
 
@@ -126,7 +126,7 @@
 
 % Font Awesome icons aliases
 \newcommand{\mailSymbol}{\faEnvelope}
-\newcommand{\mailSymbolO}{\faEnvelopeO} 
+\newcommand{\mailSymbolO}{\faEnvelopeO}
 \newcommand{\locationSymbol}{\faMapMarker}
 \newcommand{\infoSymbol}{\faInfo}
 \newcommand{\homeSymbol}{\faLink}
@@ -141,9 +141,9 @@
 % Create a tag
 % Usage: \cvtag{<tag label>}
 \newcommand{\cvtag}[1]{%
-\begin{tikzpicture}
-	\node[anchor=base,draw=darkGrey!70,rounded corners=0.5ex,inner xsep=1ex,inner ysep =0.55ex,text height=1.3ex,text depth=.25ex]{#1};
-\end{tikzpicture}	  
+    \begin{tikzpicture}
+        \node[anchor=base,draw=darkGrey!70,rounded corners=0.5ex,inner xsep=1ex,inner ysep =0.55ex,text height=1.3ex,text depth=.25ex]{#1};
+    \end{tikzpicture}
 }
 
 % Render author's name
@@ -200,7 +200,7 @@
 
 % Render author's viadeo(optional)
 % Usage: \viadeo{<viadeo-nick>}
-\newcommand*{\viadeo}[1]{\sociallink{\viadeoSymbol}{http://www.viadeo.com/fr/profile/#1}{viadeo.com/fr/profile/#1}} 
+\newcommand*{\viadeo}[1]{\sociallink{\viadeoSymbol}{http://www.viadeo.com/fr/profile/#1}{viadeo.com/fr/profile/#1}}
 
 % Render author's github (optional)
 % Usage: \github{<github-nick>}
@@ -213,22 +213,22 @@
 
 % Render author's mobile phone (optional)
 % Usage: \smartphone{<mobile phone number>}
-\newcommand*\smartphone[1]{\socialtext{\mobileSymbol}{#1}}    
+\newcommand*\smartphone[1]{\socialtext{\mobileSymbol}{#1}}
 
 % Render author's tagline
 \newcommand\resumetitle[1]{
-  \ifundef{\@
-  	}{
-	 \par{
-	 	 \bigskip\center{\Large \color{accentcolor}\textsc{#1}\color{Black}}\par
-	 }
-	 \bigskip
-  }{
-	 \par{
-	 	\bigskip\center{\Large \color{accentcolor}\textsc{#1}\color{Black}}\par
-	 }
-	 \bigskip    
-  }
+    \ifundef{\@
+    }{
+        \par{
+            \bigskip\center{\Large \color{accentcolor}\textsc{#1}\color{Black}}\par
+        }
+        \bigskip
+    }{
+        \par{
+            \bigskip\center{\Large \color{accentcolor}\textsc{#1}\color{Black}}\par
+        }
+        \bigskip
+    }
 }
 
 % Define social entries to print in header
@@ -238,52 +238,52 @@
 % Render CV header
 % Needs \@firstname, \@lastname and \@tagline to be defined
 \newcommand*{\makecvheader}{
-	\ifundef{\@alternative}{
-		 
-		\ifundef{\@photodiameter}{
-			\begin{minipage}{\linewidth}    	      	
-		}{
-			\begin{minipage}{\dimexpr\linewidth-\@photodiameter-2em}        	
-		}
-				\color{accentcolor}\user{\@firstname}{\@lastname}\color{black} \vspace*{0.3cm}\\				 	
-				\small{\@socialinfo}
-			\end{minipage}  
-		\ifdef{\@photodiameter}{
-			\begin{minipage}{\@photodiameter}
-				\begin{tikzpicture}%
-				\node[circle, text=white, minimum size=2.5cm,
-				path picture={\node at (path picture bounding box.center){
-						\includegraphics[width=2.5cm]{\@photo}
-					};
-				}]{ };
-				\end{tikzpicture}				
-			\end{minipage}
-		}{}
-	    \resumetitle{\@tagline}
-	}{
-	    \ifundef{\@photodiameter}{
-			\begin{minipage}{\linewidth}     	
-	    }{
-			\begin{minipage} {\dimexpr\linewidth-\@photodiameter-2em}    	
-	    }
-				\user{\@firstname}{\@lastname} \vspace*{0.3cm}\\
-				\resumetitle{\@tagline}
-				\smallskip\\
-				\small{\@socialinfo}
-			\end{minipage}  	    
-		\ifdef{\@photodiameter}{
-			\begin{minipage}{\@photodiameter}
-				\begin{tikzpicture}%
-				\node[text=white, minimum width=2.8cm, minimum height=2.8cm, %minimum size=2.8cm,
-				path picture={\node at (path picture bounding box.center){
-						\includegraphics[width=2.5cm]{\@photo}
-					};
-				}]{ };
-				\end{tikzpicture}			
-			\end{minipage} 			
-		}{}
-		\bigskip
-	}
+\ifundef{\@alternative}{
+
+\ifundef{\@photodiameter}{
+    \begin{minipage}{\linewidth}
+}{
+    \begin{minipage}{\dimexpr\linewidth-\@photodiameter-2em}
+        }
+        \color{accentcolor}\user{\@firstname}{\@lastname}\color{black} \vspace*{0.3cm}\\
+        \small{\@socialinfo}
+    \end{minipage}
+    \ifdef{\@photodiameter}{
+        \begin{minipage}{\@photodiameter}
+            \begin{tikzpicture}%
+                \node[circle, text=white, minimum size=2.5cm,
+                    path picture={\node at (path picture bounding box.center){
+                                \includegraphics[width=2.5cm]{\@photo}
+                            };
+                        }]{ };
+            \end{tikzpicture}
+        \end{minipage}
+    }{}
+    \resumetitle{\@tagline}
+}{
+    \ifundef{\@photodiameter}{
+        \begin{minipage}{\linewidth}
+    }{
+        \begin{minipage} {\dimexpr\linewidth-\@photodiameter-2em}
+            }
+            \user{\@firstname}{\@lastname} \vspace*{0.3cm}\\
+            \resumetitle{\@tagline}
+            \smallskip\\
+            \small{\@socialinfo}
+        \end{minipage}
+        \ifdef{\@photodiameter}{
+            \begin{minipage}{\@photodiameter}
+                \begin{tikzpicture}%
+                    \node[text=white, minimum width=2.8cm, minimum height=2.8cm, %minimum size=2.8cm,
+                        path picture={\node at (path picture bounding box.center){
+                                    \includegraphics[width=2.5cm]{\@photo}
+                                };
+                            }]{ };
+                \end{tikzpicture}
+            \end{minipage}
+        }{}
+        \bigskip
+    }
 }
 
 % Resume part title definition
@@ -294,37 +294,37 @@
 
 % Define the 'scholarship' environment
 \newenvironment{scholarship}{%
-  \begin{tabular}{Y p{\rightcolumnlength}}
-}{%
-  \end{tabular}
+    \begin{tabular}{Y p{\rightcolumnlength}}
+        }{%
+    \end{tabular}
 }
 
 % Render a scholarshipentry in the scolarship environment
 % Usage: \scholarshipentry{<date>}{<description>}
 \newcommand\scholarshipentry[2]{
-  #1    &  #2 \\
+    #1    &  #2 \\
 }
 
 % Define the 'skills' environment
 \newenvironment{skills}{%
-  \begin{longtable}{R{\leftcolumn}p{\rightcolumnlength}}
-}{%
-  \end{longtable}
+    \begin{longtable}{R{\leftcolumn}p{\rightcolumnlength}}
+        }{%
+    \end{longtable}
 }
 
 % Render a skill in the skills environment
 % Usage: \skill{<skill>}{<level>}
 \newcommand\skill[2]{
-  \textsc{#1}    & \foreach \x in {1,...,5}{{\color{accentcolor!80} \ifnumgreater{\x}{#2}{\faCircleO}{\faCircle}}\enspace } 
+    \textsc{#1}    & \foreach \x in {1,...,5}{{\color{accentcolor!80} \ifnumgreater{\x}{#2}{\faCircleO}{\faCircle}}\enspace }
 }
 
 \newcolumntype{E}{>{\raggedright\arraybackslash}p{\rightcolumnlength}}
 
 % Define the 'experiences' environment
 \newenvironment{experiences}{%
-  \begin{longtable}{R{\leftcolumn}|E}
-}{%
-  \end{longtable}
+    \begin{longtable}{R{\leftcolumn}|E}
+        }{%
+    \end{longtable}
 }
 
 % Render an experience in the experiences environment
@@ -336,14 +336,14 @@
 %                    }
 %                    {<Technology list>}
 \newcommand\experience[7]{
-  \textsc{#1} & \textsc{#2}, #3, #4                                     \\*
-                       \textsc{#5} & \begin{minipage}[t]{5.8in}
-                                        #6
-                                      \end{minipage}	\vspace*{0.1cm}                           \\*
+    \textsc{#1} & \textsc{#2}, #3, #4                                     \\*
+    \textsc{#5} & \begin{minipage}[t]{5.8in}
+        #6
+    \end{minipage}	\vspace*{0.1cm}                           \\*
 
-                                   & \begin{minipage}[t]{5.8in}
-                                        \footnotesize{\foreach \n in {#7}{\cvtag{\n}}}
-                                      \end{minipage}\\
+    & \begin{minipage}[t]{5.8in}
+        \footnotesize{\foreach \n in {#7}{\cvtag{\n}}}
+    \end{minipage}\\
 }
 
 % Render a consultant experience in the experiences environment
@@ -356,12 +356,12 @@
 %                    }
 %                    {<Technology list>}
 \newcommand\consultantexperience[9]{
-  \textsc{#1}    & \textsc{#2, #3, #4}   								\\*
-  \textsc{#5}    & \emph{#6} pour #7                       				\\*
-  				       & 	\begin{minipage}[t]{\rightcolumnlength}
-  						        #8
-                   	\end{minipage}										\\*
-                 & \footnotesize{\foreach \n in {#9}{\cvtag{\n}}} 	\\
-  }
+    \textsc{#1}    & \textsc{#2, #3, #4}   								\\*
+    \textsc{#5}    & \emph{#6} pour #7                       				\\*
+    & 	\begin{minipage}[t]{\rightcolumnlength}
+        #8
+    \end{minipage}										\\*
+    & \footnotesize{\foreach \n in {#9}{\cvtag{\n}}} 	\\
+}
 
 \newcommand\emptySeparator{\multicolumn{2}{c}{}\\}
